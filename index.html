@@ -20,7 +20,7 @@
     <input type="text" id="authorname" data-toggle="tooltip" data-placement="down" title="Allama Iqbal" placeholder="Enter Author Name">
     <br>
     ISBN:<br>
-    <input type="text" id="bookserialno" data-toggle="tooltip" data-placement="down" title="2563247198562" placeholder="Enter 13 Digit ISBN Number">
+    <input type="text" id="bookserialno" data-toggle="tooltip" maxlength="13" data-placement="down" title="2563247198562" placeholder="Enter 13 Digit ISBN Number">
     <br>
     Book Price:<br>
     <input type="text" id="bookprice" data-toggle="tooltip" data-placement="down" title="500\-" placeholder="Enter Book Price ">
@@ -48,6 +48,15 @@
     <div id='tabl'>Table</div>
     <button id="inventorybtn" type="button" onclick="display_inventory()">
     Show Inventory</button>
+  </fieldset>
+  <fieldset>
+    <legend>Buy Book</legend>
+    Book Name:<br>
+    <input type="text" id="nameofbook" data-toggle="tooltip" data-placement="down" title="Bang e Dara" placeholder="Enter Book Name">
+    <br>
+    ISBN:<br>
+    <input type="text" id="bookserial_no" data-toggle="tooltip" data-placement="down" title="3310019843401" maxlength="13" placeholder="Enter Book Name">
+    <br>
   </fieldset>
 </form>
 

@@ -1,4 +1,5 @@
 var bookStoreDetail =[];
+var checkout = [];
 // [{bookName:"Namal",authName:"Namra Ahmad",bookSerialNo:"3310113843401",bookPrice:"1000/-"},
 //                        {bookName:"Bang e Dara",authName:"Allama Iqbal",bookSerialNo:"331019843341",bookPrice:"2000/-"},
 //                        {bookName:"Peer e Kamil",authName:"Umera Ahmad",bookSerialNo:"331019823401",bookPrice:"950/-"},
@@ -20,23 +21,22 @@ function add_books() {
 	bookStoreDetail.push(bsobj)
 }
 
-// function search_books() {
-// 	      var input = document.getElementById('searchTerm').value;
-// 	      var x = /input/i;
-// 	      var result = "<table border=1 table table-hover table-dark>";
-// 	      for (var i = 0; i < bookStoreDetail.length; i++) {
-// 	      	result += "<tr>";
-// 	      	if (input == bookStoreDetail[i]) {
-// 	      	result += "<td>"+bookStoreDetail[i].bookName+"</td>"+"<td>"+bookStoreDetail[i].authName+"</td>"+"<td>"+bookStoreDetail[i].bookSerialNo+"</td>"+"<td>"+bookStoreDetail[i].bookPrice+"</td>";	
-// 	      	}
-// 	      	else{
+function search_books() {
+	      var input = document.getElementById('searchTerm').value;
+	      var result = "<table border=1 table table-hover table-dark>";
+	      for (var i = 0; i < bookStoreDetail.length; i++) {
+	      	result += "<tr>";
+	      	if ((input).toUpperCase() == (bookStoreDetail[i]).toUpperCase()) {
+	      	result += "<td>"+bookStoreDetail[i].bookName+"</td>"+"<td>"+bookStoreDetail[i].authName+"</td>"+"<td>"+bookStoreDetail[i].bookSerialNo+"</td>"+"<td>"+bookStoreDetail[i].bookPrice+"</td>";	
+	      	}
+	      	else{
 
-// 	      	}
-// 	      	result +="<tr>";
-// 	      }
-// 	      result += "</table>";
-// 	document.getElementById("searchData")
-// }
+	      	}
+	      	result +="<tr>";
+	      }
+	      result += "</table>";
+	document.getElementById("searchData").innerHTML = result;
+}
 
 function display_inventory() {
 	var result = "<table border=1 table table-hover table-dark>";
@@ -54,7 +54,19 @@ function toggle_inventory_data(){
 		display_inventory();
 	}
 	else{
-		document.getElementById("tabl").innerHTML = "";
+		document.getElementById("tabl").innerHTML = " ";
 	}
 }
 
+function buy_book() {
+	var bknmfld = document.getElementById('nameofbook').value;
+	var bkquantity = document.getElementById('bbook_quantity').value;
+	for (var i = 0; i < bookStoreDetail.length; i++) 
+	{
+		if ((bknmfld).toUpperCase() === (bookStoreDetail[i].toUpperCase())) 
+		{
+			
+		}
+	}
+
+}

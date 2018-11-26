@@ -29,7 +29,7 @@
     <input type="text" id="no_ofbooks" data-toggle="tooltip" data-placement="down" title="50" placeholder="Enter Book Quantity ">
     <br>
     <button id='btn0' type="button" onclick="add_books()">Add Book</button>
-    <p id="messsage" style="float: center;color: green"></p>
+    <div id="messsage" style="float: center;color: green"></div>
   </fieldset>
   <fieldset>
     <legend>Search Books In Store:</legend>
@@ -61,7 +61,9 @@
     Quantity:<br>
     <input type="text" id="bbook_quantity" data-toggle="tooltip" data-placement="down" title="3310019843401" maxlength="13" placeholder="Enter Quantity Of Books">
     <br>
+    <div id="purchaseRecipt"></div>
     <button id="buy_btn" type="button" onclick="buy_book()">Buy Books</button>
+    <button id="invoicebtn" type="button" onclick="checkoutInvoice()">Checkout Invoice</button>
   </fieldset>
 </form>
 

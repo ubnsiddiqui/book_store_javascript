@@ -1,6 +1,6 @@
-var bookStoreDetail =[];
 var checkout = [];
-
+var bookStoreDetail =[];
+var i = 0;
 function add_books() {
 	var bsobj = {};
 	bookName = document.getElementById('namebook').value;
@@ -13,15 +13,16 @@ function add_books() {
 	bsobj = Object.assign({"bookSerialNo":bookSerialNo},bsobj);
 	bsobj = Object.assign({"bookPrice":bookPrice},bsobj);
 	bsobj = Object.assign({"bookQuantity":bookQuantity},bsobj);
-
 	bookStoreDetail.push(bsobj);
+	localStorage.setItem(i,bookStoreDetail);
+	i++;
 alert("Successfully Added Books in the Cart");
 }
 
 function search_books() {
 	      var input = document.getElementById('searchTerm').value;
 	      var result = "<table border=1 table table-hover table-dark>";
-
+	      result += "<th>"+"Book Name"+"</th>"+"<th>"+"Author Name"+"</th>"+"<th>"+"ISBN"+"</th>"+"<th>"+"Unit Price"+"</th>"+"<th>"+"Book Quantity"+"</th>";
 	      for (var i = 0; i < bookStoreDetail.length; i++) {
 	      	result += "<tr>";
 	      	if (input.toLowerCase() === ((bookStoreDetail[i]).bookName).toLowerCase()||input.toLowerCase() === ((bookStoreDetail[i]).bookSerialNo).toLowerCase()) {
@@ -48,14 +49,6 @@ result += "</table>";
 document.getElementById('tabl').innerHTML = result;
 }
 
-function toggle_inventory_data(){
-	if(isEmpty($('tabl'))) {
-		display_inventory();
-	}
-	else{
-		document.getElementById("tabl").innerHTML = " ";
-	}
-}
 
 function buy_book() {
     var buyobj = {};
@@ -63,10 +56,9 @@ function buy_book() {
 	var bkquantity = document.getElementById('bbook_quantity').value;
 	for (var i = 0; i < bookStoreDetail.length; i++) 
 	{
-		if ((bknmfld).toUpperCase() === ((bookStoreDetail[i].bookName).toUpperCase()) && (bookStoreDetail[i].bookQuantity) != 0) 
+		if ((bknmfld).toUpperCase() === ((bookStoreDetail[i].bookName).toUpperCase()) && (bookStoreDetail[i].bookQuantity) != 0 && parseInt(bkquantity) <= parseInt((bookStoreDetail[i]).bookQuantity)) 
 		{
-			if (parseInt(bkquantity) <= parseInt((bookStoreDetail[i]).bookQuantity)) {
-				buyobj = Object.assign({"bknm": bookStoreDetail[i].bookName},buyobj);
+			buyobj = Object.assign({"bknm": bookStoreDetail[i].bookName},buyobj);
 				buyobj = Object.assign({"athnm": bookStoreDetail[i].authName},buyobj);
 				buyobj = Object.assign({"bkprce": bookStoreDetail[i].bookPrice},buyobj);
 				buyobj = Object.assign({"bksrlno": bookStoreDetail[i].bookSerialNo},buyobj);
@@ -74,14 +66,14 @@ function buy_book() {
 				checkout.push(buyobj);
 				updateQuantity = parseInt(bookStoreDetail[i].bookQuantity) - parseInt(bkquantity);
 				bookStoreDetail[i].bookQuantity = updateQuantity;
-			}
+			alert("Successfully Books Added In Your Cart.If U Want To Buy More Plz Check Our Inventory First");
 			
 		}
 		else if ((bookStoreDetail[i].bookQuantity) == 0 ||(bknmfld).toUpperCase() !== ((bookStoreDetail[i].bookName).toUpperCase())||(parseInt(bookStoreDetail[i].bookQuantity)) < parseInt(bkquantity) ) {
 			alert("Book is Out of Stock.Plz check our Inventory First");
 		}
 	}
-	alert("Successfully Books Added In Your Cart.If U Want To Buy More Plz Check Our Inventory First");
+	
 	
 }
 

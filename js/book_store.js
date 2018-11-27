@@ -25,6 +25,7 @@ function search_books() {
 	      result += "<th>"+"Book Name"+"</th>"+"<th>"+"Author Name"+"</th>"+"<th>"+"ISBN"+"</th>"+"<th>"+"Unit Price"+"</th>"+"<th>"+"Book Quantity"+"</th>";
 	      for (var i = localStorage.length-1; i < localStorage.length; i++) {
 	      	ls = JSON.parse(localStorage[i]);
+	
 	      	
 	      	for (var  j= 0; j < ls.length; j++) {
 	      		
@@ -33,10 +34,12 @@ function search_books() {
 	      	result += "<td>"+ls[j].bookName+"</td>"+"<td>"+ls[j].authName+"</td>"+"<td>"+ls[j].bookSerialNo+"</td>"+"<td>"+ls[j].bookPrice+"</td>"+"<td>"+ls[j].bookQuantity+"</td>";	
 	      	result +="</tr>";
 	      	}
-	      	else{
-	      		result +="<tr>";
-	      		result += "<td>"+"Book Not Found"+"</td>";
-	      		result +="</tr>";
+	      	else if(input.toLowerCase() !== ((ls[j]).bookName).toLowerCase()&&parseInt(input) != parseInt((ls[j]).bookSerialNo)){
+	      		// result +="<tr>";
+	      		// result += "<td>"+"Book Not Found"+"</td>";
+	      		// result +="</tr>";
+	      		continue;
+	      		alert("Book Not Found");
 	      	}
 	      	
 	      	}
@@ -71,6 +74,7 @@ function buy_book() {
 	{
 		ls = JSON.parse(localStorage[k]);
 		for (var l = 0; l < ls.length; l++) {
+			var m = ls.length-1;
 			if ((bknmfld).toUpperCase() === ((ls[l].bookName).toUpperCase()) && parseInt(bkquantity) <= parseInt(ls[l].bookQuantity))
 			{
 				buyobj = Object.assign({"bknm": ls[l].bookName},buyobj);
@@ -88,7 +92,10 @@ function buy_book() {
 		else if ((ls[l].bookQuantity) == 0 ) {
 			alert("Book is Out of Stock.Plz check our Inventory First");
 		}
-		else if ((bknmfld).toUpperCase() !== ((ls[l].bookName).toUpperCase())) {
+		else if (m == l) {
+			break;
+		}	
+		else if ((bknmfld).toUpperCase() !== ((ls[m].bookName).toUpperCase())) {
 			alert("Book u r searching for is not in our stock.Plz check our Inventory First");
 		}	 
 				

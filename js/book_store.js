@@ -1,9 +1,10 @@
 var checkout = [];
 var bookStoreDetail =[];
-var i = 0;
+var key = 0;
 function add_books() {
 	var bsobj = {};
-	bookName = document.getElementById('namebook').value;
+	if (document.getElementById('namebook').value != ""||document.getElementById('authorname').value != ""||document.getElementById('bookserialno').value != ""||document.getElementById('bookprice').value != ""||document.getElementById('no_ofbooks').value != "") {
+		bookName = document.getElementById('namebook').value;
 	authName = document.getElementById('authorname').value;
 	bookSerialNo = document.getElementById('bookserialno').value;
 	bookPrice = document.getElementById('bookprice').value;
@@ -14,9 +15,14 @@ function add_books() {
 	bsobj = Object.assign({"bookPrice":bookPrice},bsobj);
 	bsobj = Object.assign({"bookQuantity":bookQuantity},bsobj);
 	bookStoreDetail.push(bsobj);
-	localStorage.setItem(i,JSON.stringify(bookStoreDetail));
-	i++;
+	localStorage.setItem(key,JSON.stringify(bookStoreDetail));
+	key++;
 alert("Successfully Added Books in the Cart");
+	}
+	else{
+		alert("Plz Fillout the Required Fields");
+	}
+
 }
 
 function search_books() {

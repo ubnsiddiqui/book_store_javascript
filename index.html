@@ -14,26 +14,26 @@
   <fieldset>
     <legend>Add Books In Store:</legend>
     Book Name:<br>
-    <input type="text" id="namebook" data-toggle="tooltip" data-placement="down" title="Bang e Dara" placeholder="Enter Book Name">
+    <input type="text" id="namebook" data-toggle="tooltip" data-placement="down" title="Bang e Dara" placeholder="Enter Book Name" required>
     <br>
     Author Name:<br>
-    <input type="text" id="authorname" data-toggle="tooltip" data-placement="down" title="Allama Iqbal" placeholder="Enter Author Name">
+    <input type="text" id="authorname" data-toggle="tooltip" data-placement="down" title="Allama Iqbal" placeholder="Enter Author Name" required>
     <br>
     ISBN:<br>
-    <input type="text" id="bookserialno" data-toggle="tooltip" maxlength="13" data-placement="down" title="2563247198562" placeholder="Enter 13 Digit ISBN Number">
+    <input type="text" id="bookserialno" data-toggle="tooltip" maxlength="13" data-placement="down" title="2563247198562" placeholder="Enter 13 Digit ISBN Number" required>
     <br>
     Book Price:<br>
-    <input type="text" id="bookprice" data-toggle="tooltip" data-placement="down" title="500\-" placeholder="Enter Book Price ">
+    <input type="number" id="bookprice" data-toggle="tooltip" data-placement="down" title="500\-" placeholder="Enter Book Price " required>
     <br>
     Book Quantity:<br>
-    <input type="text" id="no_ofbooks" data-toggle="tooltip" data-placement="down" title="50" placeholder="Enter Book Quantity ">
+    <input type="number" id="no_ofbooks" data-toggle="tooltip" data-placement="down" title="50" placeholder="Enter Book Quantity " required>
     <br>
     <button id='btn0' type="button" onclick="add_books()">Add Book</button>
     <div id="messsage" style="float: center;color: green"></div>
   </fieldset>
   <fieldset>
     <legend>Search Books In Store:</legend>
-   <input type="text" id="searchTerm"  />
+   <input type="text" id="searchTerm"  required/>
    <button id="srch_btn" type="button" onclick="search_books()">Search Book</button>
    <div id="searchData"></div>
   </fieldset> 
@@ -53,13 +53,13 @@
   <fieldset>
     <legend>Buy Book</legend>
     Book Name:<br>
-    <input type="text" id="nameofbook" data-toggle="tooltip" data-placement="down" title="Bang e Dara" placeholder="Enter Book Name">
+    <input type="text" id="nameofbook" data-toggle="tooltip" data-placement="down" title="Bang e Dara" placeholder="Enter Book Name" required>
     <br>
    <!--  ISBN:<br>
     <input type="text" id="bookserial_no" data-toggle="tooltip" data-placement="down" title="3310019843401" maxlength="13" placeholder="Enter 13 Digit Serial No">
     <br> -->
     Quantity:<br>
-    <input type="text" id="bbook_quantity" data-toggle="tooltip" data-placement="down" title="3310019843401" maxlength="13" placeholder="Enter Quantity Of Books">
+    <input type="number" id="bbook_quantity" data-toggle="tooltip" data-placement="down" title="3310019843401" maxlength="13" placeholder="Enter Quantity Of Books" required>
     <br>
     <div id="purchaseRecipt"></div>
     <button id="buy_btn" type="button" onclick="buy_book()">Buy Books</button>
